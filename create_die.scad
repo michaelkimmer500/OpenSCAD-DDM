@@ -37,7 +37,18 @@ module letter(l, font=font, letter_size=letter_size) {
     //bottom: 5
         //translate([0, 0, -o])
 
-//
+//Die Sides
+s0="M2"; //magic x2
+s1="A3"; //attack x3
+s2="P4"; //movement x4
+s3="D1"; //defense x1
+s4="S4"; //summon lv 4
+s5="T5"; //trap x5
+
+args = [s0, s1, s2, s3, s4, s5];
+
+
+
 text_dict = [
     [[90,0,270], [-o, 0, 0]],
     [[90,0,90], [o, 0, 0]],
@@ -64,7 +75,6 @@ mult_shift_dic = [
     [22,0,-22], [-22,0,-22],
     [22,-22,0], [22,-22,0]
 ];
-
 
 module attack(axis=0, mult="1") {
 
@@ -224,28 +234,55 @@ difference() {
   //translate([0, -o, 0]) rotate([90, 0, 0]) letter("\u2756");
   //translate([o, 0, 0]) rotate([90, 0, 90]) letter("U");
   //translate([0, o, 0]) rotate([90, 0, 180]) letter("B");
+  for (i= [0 : len(args)-1]) {
+      arg=args[i];
+      crest_type=arg[0];
+      val=arg[1];
+      if (crest_type=="A") {
+          attack(axis=i, mult=val);
+      }
+      else if (crest_type=="M") {
+          magic(axis=i, mult=val);
+      }
+      else if (crest_type=="S") {
+          summon(val, axis=i);
+      }
+      else if (crest_type=="P") {
+          movement(axis=i, mult=val);
+      }
+      else if (crest_type=="D") {
+          defense(axis=i, mult=val);
+      }
+      else if (crest_type=="T") {
+          trap(axis=i, mult=val);
+      }
+      else {
+          echo("ERROR: INVALID CREST TYPE SPECIFIED");
+          exit();
+      }
+  }
   
   //summon
   //summon("4", axis=0);
-  summon("4", axis=4);
+  //summon("4", axis=4);
   
   //magic crest
-  magic(axis=0, mult="2");
+  //magic(axis=0, mult="2");
   
   //attack crest
-  attack(axis=1, mult="2");
+  //attack(axis=1, mult="2");
   //attack(axis=3, mult="2");
   //attack(axis=4, mult="2");
   //attack(axis=5, mult="3");
   
   //movement
-  movement(axis=2, mult="4");
+  //movement(axis=2, mult="4");
   
   //defense
-  defense(axis=3, mult="4");
+  //defense(axis=3, mult="4");
   
   //trap
-  trap(axis=5, mult="3");
+  //trap(axis=5, mult="3");
   
   //translate([-o, 0, 0]) rotate([90, 0, 270]) letter("\u2721");
   // Put some symbols on top and bottom using symbols from the
@@ -261,3 +298,9 @@ difference() {
   //scale([-1,1,1])
   //letter("3", font="DejaVu Sans");
 }
+// star: letter("\u2606", font="DejaVu Sans", letter_size=50)
+//swords: letter("\u2694", font="Noto Emoji", letter_size=25);
+//shield
+
+// Fonts:
+// https://fonts.google.com/noto/specimen/Noto+Emoji
