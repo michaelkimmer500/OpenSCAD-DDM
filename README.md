@@ -2,6 +2,8 @@
 
 A OpenSCAD code to create a custom DDM die as an STL.
 
+![Alt text](example_die.png)
+
 Note that this may not work through the terminal alone because of the need to install additional fonts,
 so instead you may want to install OpenSCAD on your own computer:
 
