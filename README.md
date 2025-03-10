@@ -3,11 +3,22 @@
 A OpenSCAD code to create a custom DDM die as an STL
 
 
-## Step 1: Download/Install Docker
+## Step 1: Download and install the necessary fonts
+
+- DejaVu Sans: https://www.fontsquirrel.com/fonts/dejavu-sans
+  - Click on "DOWNLOAD TTF" button
+- Noto Emoji: https://fonts.google.com/noto/specimen/Noto+Emoji
+  - Click "Get Font" button to download
+
+- Alternatively, download from the repo here
+- On MACOS, open Font Book application
+- Click the "+" symbol and add the ".ttf" files to add the fonts to your computer
+
+## Step 2: Download/Install Docker
 
 Alternatively, you can build OpenSCAD on your computer, but running it through Docker is much easier.
 
-## Step 2: Pull the OpenSCAD Docker from DockerHub
+## Step 3: Pull the OpenSCAD Docker from DockerHub
 
 - If you are on MACOS, you will need to first open Docker Desktop
 
@@ -17,7 +28,7 @@ Alternatively, you can build OpenSCAD on your computer, but running it through D
   
 ```docker pull openscad/openscad```
 
-## Step 3: Run the following:
+## Step 4: Run the following:
 
 
 ```
