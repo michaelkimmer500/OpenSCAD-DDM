@@ -2,9 +2,11 @@
 
 A OpenSCAD code to create a custom DDM die as an STL.
 
-Note that this may not work through the terminal alone because of the need to downlaod additional fonts, so instead you may want to install OpenSCAD on your own computer.
+Note that this may not work through the terminal alone because of the need to install additional fonts,
+so instead you may want to install OpenSCAD on your own computer:
 
-Download from here: https://openscad.org/downloads.html
+- Install the fonts as described in Step 1
+- Download OpenSCAD from here: https://openscad.org/downloads.html
 - You may need to allow your MAC to open this file (change permissions in Security & Privacy in system settings)
 - Open the ```.scad``` file in the application
 - Change ```s0``` through ```s6``` variables appropriately to customize the die
